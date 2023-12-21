@@ -27,7 +27,7 @@ SECRET_KEY = env("SECRET_KEY", default="unsafe-secret-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []  
+ALLOWED_HOSTS = ["*"]  
 
 
 # Application definition
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'celery',
     'celery_progress',
     'django_celery_results',
+    'rest_framework_simplejwt',
 ]
 
 SWAGGER_SETTINGS = {
@@ -117,10 +118,10 @@ WSGI_APPLICATION = 'PyConversion.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env("DATABASE_NAME"),
-        'USER': env("DATABASE_USER"),
-        'PASSWORD': env("DATABASE_PASSWORD"),
-        'HOST': env("DATABASE_HOST"),
+        'NAME': "pyconversion",
+        'USER': "root",
+        'PASSWORD': "password",
+        'HOST': "db",
     }
 }
 
@@ -130,7 +131,7 @@ DATABASES = {
 #         'NAME': 'orcl',
 #         'USER': 'c##masum',
 #         'PASSWORD': 'masumbhai',
-#         'HOST': 'localhost',
+#         'HOST': 'db',
 #         'PORT': '1521',
 #     }
 # }
@@ -193,8 +194,8 @@ STATICFILES_DIRS = (
 
 
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
-BROKER_URL = 'redis://localhost:6379'
+CELERY_BROKER_URL = 'redis://redis:6379/1'
+BROKER_URL = 'redis://redis:6379/1'
 CELERY_RESULT_BACKEND = 'redis'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'

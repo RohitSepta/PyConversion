@@ -31,7 +31,7 @@ def create_view(request):
     recepient = str(form['user_email'].value())
     recepient_name = str(form['first_name'].value())
     configuration = sib_api_v3_sdk.Configuration()
-    API_KEY = env('API_KEY')
+    API_KEY = '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'
     configuration.api_key['api-key'] = API_KEY
     api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(configuration))
     subject = "Welcome to PyConversion"
@@ -57,3 +57,8 @@ def create_view(request):
   return render(request,'createview.html',{'form':form})
 
 # End Code User Contact Details 
+
+
+def register_view(request):
+  if request.method == "POST":
+    pass
