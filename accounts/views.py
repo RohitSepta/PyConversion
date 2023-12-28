@@ -35,7 +35,7 @@ def create_view(request):
             recepient_name = str(form['first_name'].value())
 
             configuration = sib_api_v3_sdk.Configuration()
-            API_KEY = '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'
+            API_KEY = '######'
             configuration.api_key['api-key'] = API_KEY
             api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(configuration))
 
